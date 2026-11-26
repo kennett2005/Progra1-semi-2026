@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FG Corporation — Servidores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="navbar-logo" href="feed.html">
+            <img src="assets/logo.jpg" alt="FG Corporation">
+            <span>FG_CORPORATION</span>
+        </a>
+
+        <div class="navbar-tabs is-centered">
+            <a class="navbar-tab" href="feed.html">Feed</a>
+            <a class="navbar-tab" href="#" data-soon="Grupos">Grupos</a>
+            <a class="navbar-tab active" href="servers.html">Servidores</a>
+            <a class="navbar-tab" href="#" data-soon="Foros">Foros</a>
+            <a class="navbar-tab" href="#" data-soon="Chat">Chat</a>
+        </div>
+
+        <div class="navbar-user">
+            <a class="navbar-profile" href="profile.html" title="Mi perfil">
+                <span class="navbar-username" id="navbar-username"></span>
+                <div class="avatar-badge" id="navbar-avatar">?</div>
+            </a>
+            <button class="btn-logout" id="logout-btn" type="button">Salir</button>
+        </div>
+    </nav>
+
+    <main class="page-main narrow">
+        <div class="page-head">
+            <div>
+                <h1>Servidores</h1>
+                <p>Encuentra y vota servidores de la comunidad.</p>
+            </div>
+            <button class="btn primary" id="add-server-btn" type="button">Agregar servidor</button>
+        </div>
+
+        <div class="filter-row" id="server-filters"></div>
+        <div class="server-list" id="server-list"></div>
+    </main>
+
+    <!-- Modal: agregar servidor (POST /api/servers) -->
+    <div class="modal-backdrop" id="server-modal" role="dialog" aria-modal="true" aria-labelledby="server-modal-title">
+        <div class="modal">
+            <h2 id="server-modal-title">Agregar servidor</h2>
+            <div id="server-alert" class="alert"></div>
+            <form id="server-form" novalidate>
+                <div class="field">
+                    <label for="srv-name">Nombre</label>
+                    <input type="text" id="srv-name" maxlength="100" required placeholder="Mundo Survival">
+                </div>
+                <div class="field">
+                    <label for="srv-type">Tipo</label>
+                    <select id="srv-type">
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="CS2">CS2</option>
+                        <option value="Discord">Discord</option>
+                        <option value="TeamSpeak">TeamSpeak</option>
+                    </select>
+                </div>
+                <div class="modal-grid">
+                    <div class="field">
+                        <label for="srv-ip">Direccion IP / dominio</label>
+                        <input type="text" id="srv-ip" placeholder="play.mundo.net">
+                    </div>
+                    <div class="field">
+                        <label for="srv-port">Puerto</label>
+                        <input type="number" id="srv-port" min="1" max="65535" placeholder="25565">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="srv-invite">Enlace de invitacion (opcional)</label>
+                    <input type="text" id="srv-invite" placeholder="discord.gg/fgcorp">
+                </div>
+                <div class="field">
+                    <label for="srv-max">Maximo de jugadores (opcional)</label>
+                    <input type="number" id="srv-max" min="1" placeholder="100">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn" id="server-cancel">Cancelar</button>
+                    <button type="submit" class="btn primary" id="server-submit">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/shell.js"></script>
+    <script src="js/servers.js"></script>
+</body>
+</html>

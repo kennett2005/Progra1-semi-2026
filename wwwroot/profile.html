@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FG Corporation — Perfil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="navbar-logo" href="feed.html">
+            <img src="assets/logo.jpg" alt="FG Corporation">
+            <span>FG_CORPORATION</span>
+        </a>
+
+        <div class="navbar-tabs is-centered">
+            <a class="navbar-tab" href="feed.html">Feed</a>
+            <a class="navbar-tab" href="#" data-soon="Grupos">Grupos</a>
+            <a class="navbar-tab" href="servers.html">Servidores</a>
+            <a class="navbar-tab" href="#" data-soon="Foros">Foros</a>
+            <a class="navbar-tab" href="#" data-soon="Chat">Chat</a>
+        </div>
+
+        <div class="navbar-user">
+            <a class="navbar-profile" href="profile.html" title="Mi perfil">
+                <span class="navbar-username" id="navbar-username"></span>
+                <div class="avatar-badge" id="navbar-avatar">?</div>
+            </a>
+            <button class="btn-logout" id="logout-btn" type="button">Salir</button>
+        </div>
+    </nav>
+
+    <div id="profile-root">
+        <!-- El contenido se llena desde profile.js -->
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/shell.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
